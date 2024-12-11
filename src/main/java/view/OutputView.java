@@ -14,8 +14,8 @@ public class OutputView {
         System.out.println(ErrorMessage.INVALID_NUMBER_OF_CANT_EAT_FOOD.getContent());
     }
 
-    public static void menuDoesntExist(){
-        System.out.println(ErrorMessage.INVALID_NAME_OF_MENU.getContent());
+    public static void cantEatFoodMenuDoesntExist(){
+        System.out.println(ErrorMessage.INVALID_NAME_OF_CANT_EAT_MENU.getContent());
     }
 
     public static void duplicateName() {

@@ -9,8 +9,8 @@ public class InputView {
         return getLine();
     }
 
-    public static String getCantEatFood(){
-        System.out.println(Message.GET_CANT_EAT.getContent());
+    public static String getCantEatFood(String name){
+        System.out.printf(Message.GET_CANT_EAT.getContent(), name, System.lineSeparator());
         return getLine();
     }
 
