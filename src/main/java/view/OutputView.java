@@ -18,4 +18,7 @@ public class OutputView {
         System.out.println(ErrorMessage.INVALID_NAME_OF_MENU.getContent());
     }
 
+    public static void duplicateName() {
+        System.out.println(ErrorMessage.DUPLICATE_NAME_IS_EXIST.getContent());
+    }
 }
