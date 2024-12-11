@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum KoreanMenu {
     KIMBAP("김밥"),

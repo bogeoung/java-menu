@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum AsianMenu {
     PATTAI("팟타이"),

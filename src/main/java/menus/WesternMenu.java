@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum WesternMenu {
     RAJANYA("라자냐"),

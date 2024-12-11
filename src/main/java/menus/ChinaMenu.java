@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum ChinaMenu {
     KKANPONGGI("깐풍기"),

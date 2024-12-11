@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum JapanMenu {
     GYEDONG("규동"),

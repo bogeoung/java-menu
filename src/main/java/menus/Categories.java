@@ -1,4 +1,4 @@
-package menu;
+package menus;
 
 public enum Categories {
     ASIAN("아시안"),
