@@ -1,4 +1,4 @@
-package View;
+package view;
 
 public enum Message {
     RECOMMENDATION_START("점심 메뉴 추천을 시작합니다."),

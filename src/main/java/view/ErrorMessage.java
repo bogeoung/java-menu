@@ -1,4 +1,4 @@
-package View;
+package view;
 
 public enum ErrorMessage {
     INVALID_COACH_NAME("코치의 이름은 2글자 이상 4글자 이하여야 합니다."),
