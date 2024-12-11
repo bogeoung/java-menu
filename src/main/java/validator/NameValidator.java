@@ -1,10 +1,10 @@
-package menu;
+package validator;
 
 import java.util.List;
 import utill.InputSplit;
 import view.OutputView;
 
-public class InputValidator {
+public class NameValidator {
 
     public static final int MAX_NUMBER_OF_COACH = 5;
     public static final int MIN_NUMBER_OF_COACH = 2;
@@ -13,11 +13,11 @@ public class InputValidator {
 
     private List<String> coachNames;
 
-    public InputValidator(String input) {
+    public NameValidator(String input) {
         this.coachNames = InputSplit.split(input);
     }
 
-    public boolean validateCoachName(){
+    public boolean validate(){
         if(!validNameOfCoach()){
             OutputView.coachNameLengthIsWrong();
             return false;
