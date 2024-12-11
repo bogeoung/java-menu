@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Arrays;
+
 public enum WesternMenu {
     RAJANYA("라자냐"),
     GRATANG("그라탱"),
@@ -11,14 +13,18 @@ public enum WesternMenu {
     PIZZA("피자"),
     PANINI("파니니");
 
-    private String menu;
+    private String menuName;
 
-    WesternMenu(String menu) {
-        this.menu = menu;
+    WesternMenu(String menuName) {
+        this.menuName = menuName;
     }
 
-    public String getMenu() {
-        return menu;
+    public static boolean hasMenu(String inputMenu){
+        return Arrays.stream(WesternMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
+    }
+
+    public String getMenuName() {
+        return menuName;
     }
 }
 

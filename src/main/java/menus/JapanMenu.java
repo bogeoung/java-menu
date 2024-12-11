@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Arrays;
+
 public enum JapanMenu {
     GYEDONG("규동"),
     WOODONG("우동"),
@@ -11,14 +13,17 @@ public enum JapanMenu {
     RAMEN("라멘"),
     OCONOMIYAKI("오코노미야끼");
 
-    private String menu;
+    private String menuName;
 
-    JapanMenu(String menu) {
-        this.menu = menu;
+    JapanMenu(String menuName) {
+        this.menuName = menuName;
     }
 
-    public String getMenu() {
-        return menu;
+    public static boolean hasMenu(String inputMenu){
+        return Arrays.stream(JapanMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
+    }
+    public String getMenuName() {
+        return menuName;
     }
 }
 

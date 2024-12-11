@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Arrays;
+
 public enum AsianMenu {
     PATTAI("팟타이"),
     KAOPAT("카오팟"),
@@ -11,14 +13,18 @@ public enum AsianMenu {
     WOLNAMSSAM("월남쌈"),
     BUNCCHA("분짜");
 
-    private String menu;
+    private String menuName;
 
-    AsianMenu(String menu) {
-        this.menu = menu;
+    AsianMenu(String menuName) {
+        this.menuName = menuName;
     }
 
-    public String getMenu() {
-        return menu;
+    public static boolean hasMenu(String inputMenu){
+        return Arrays.stream(AsianMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
+    }
+
+    public String getMenuName() {
+        return menuName;
     }
 }
 

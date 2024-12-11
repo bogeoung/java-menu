@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Arrays;
+
 public enum ChinaMenu {
     KKANPONGGI("깐풍기"),
     FRIEDRICE("볶음면"),
@@ -11,14 +13,17 @@ public enum ChinaMenu {
     TOMATOEGGFRY("토마토달걀볶음"),
     GOCHUJAPCHE("고추잡채");
 
-    private String menu;
+    private String menuName;
 
-    ChinaMenu(String menu) {
-        this.menu = menu;
+    ChinaMenu(String menuName) {
+        this.menuName = menuName;
     }
 
-    public String getMenu() {
-        return menu;
+    public static boolean hasMenu(String inputMenu){
+        return Arrays.stream(ChinaMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
+    }
+    public String getMenuName() {
+        return menuName;
     }
 }
 

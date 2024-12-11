@@ -1,5 +1,7 @@
 package menus;
 
+import java.util.Arrays;
+
 public enum KoreanMenu {
     KIMBAP("김밥"),
     KIMCHISOUP("김치찌개"),
@@ -11,14 +13,18 @@ public enum KoreanMenu {
     TTEOKBBOKI("떡볶이"),
     GAEYUK("제육볶음");
 
-    private String menu;
+    private String menuName;
 
-    KoreanMenu(String menu) {
-        this.menu = menu;
+    KoreanMenu(String menuName) {
+        this.menuName = menuName;
     }
 
-    public String getMenu() {
-        return menu;
+    public static boolean hasMenu(String inputMenu){
+        return Arrays.stream(KoreanMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
+    }
+
+    public String getMenuName() {
+        return menuName;
     }
 }
 
