@@ -11,16 +11,11 @@ public class RecommendationMachine {
     public static final int WEEKDAY_COUNT_PER_WEEK = 5;
     public static final int MAXIMUM_SAME_CATEGORY_PER_WEEK = 2;
     public static final int INDEX_MATCHER = 1;
-    List<String> categories;
-
-    public RecommendationMachine() {
-        categories = AllMenus.getCategoriesNames();
-    }
 
     public List<Integer> getRandomCategories() {
         List<Integer> weekCategories = new LinkedList<>();
         while (weekCategories.size() < WEEKDAY_COUNT_PER_WEEK) {
-            int randomNumber = getRandomNumbers() - INDEX_MATCHER;
+            int randomNumber = getRandomNumbers();
             if (weekCategories.stream().filter(s -> s.equals(randomNumber)).count() < MAXIMUM_SAME_CATEGORY_PER_WEEK) {
                 weekCategories.add(randomNumber);
             }
@@ -28,22 +23,20 @@ public class RecommendationMachine {
         return weekCategories;
     }
 
-    public void setRandomFoodsByCoach(List<Integer> categories, Coaches coaches) {
-        for (Coach coach : coaches.getCoaches()) {
-            setRandomFoodsByCategory(categories, coach);
+    public void setRandomFoodsByCoach(List<Integer> categoryIndexes, Coaches coaches) {
+        for (Integer categoryIndex : categoryIndexes) {
+            for (Coach coach : coaches.getCoaches()) {
+                coach.addWeekFood(pickRandomFoodInCategories(categoryIndex - INDEX_MATCHER, coach));
+            }
         }
     }
 
-    private void setRandomFoodsByCategory(List<Integer> weekCategoriesIndex, Coach coach) {
-        for (Integer categoryIndex : weekCategoriesIndex) {
-            coach.addWeekFood(pickRandomFoodInCategories(categoryIndex, coach));
-        }
-    }
 
     private String pickRandomFoodInCategories(int weekCategoriesIndex, Coach coach) {
-        Menu menu = AllMenus.getCategoryByIndex(weekCategoriesIndex);
+        AllMenus allMenus = new AllMenus();
+        Menu menu = allMenus.getCategoryByIndex(weekCategoriesIndex);
         while (true) {
-            String pickedMenu = menu.getMenuName(getRandomNumbers());
+            String pickedMenu = Randoms.shuffle(menu.getMenuNames()).get(0);
             if (!coach.getCantEatFood().contains(pickedMenu) && !coach.getWeekFood().contains(pickedMenu)) {
                 return pickedMenu;
             }

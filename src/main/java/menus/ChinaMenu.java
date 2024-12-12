@@ -15,8 +15,8 @@ public class ChinaMenu implements Menu {
     }
 
     @Override
-    public String getMenuName(int index) {
-        return menus.get(index);
+    public List<String> getMenuNames() {
+        return menus;
     }
 }
 

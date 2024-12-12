@@ -1,6 +1,8 @@
 package menus;
 
+import java.util.List;
+
 public interface Menu {
     boolean hasMenu(String name);
-    String getMenuName(int index);
+    List<String> getMenuNames();
 }

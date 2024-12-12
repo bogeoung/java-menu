@@ -13,8 +13,10 @@ public class AsianMenu implements Menu {
         return menus.contains(inputMenu);
     }
 
-    public String getMenuName(int index) {
-        return menus.get(index);
+    @Override
+    public List<String> getMenuNames() {
+        return menus;
     }
+
 }
 
