@@ -6,7 +6,6 @@ import validator.CantEatFoodValidator;
 import validator.NameValidator;
 import view.InputView;
 import view.Message;
-import view.OutputView;
 
 public class Recommender {
 

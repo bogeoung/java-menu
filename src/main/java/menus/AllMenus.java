@@ -17,8 +17,8 @@ public class AllMenus {
     }
 
     public boolean checkInMenu(String menuName) {
-        for(Menu menu : categories) {
-            if(menu.hasMenu(menuName)){
+        for (Menu menu : categories) {
+            if (menu.hasMenu(menuName)) {
                 return true;
             }
         }
