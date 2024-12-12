@@ -1,30 +1,20 @@
 package menus;
 
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
-public enum AsianMenu {
-    PATTAI("팟타이"),
-    KAOPAT("카오팟"),
-    NACHIGORANG("나시고렝"),
-    PINEAPPLEFRYRICE("파인애플볶음밥"),
-    RICENOODLE("쌀국수"),
-    TTOMYANKKONG("똠얌꿍"),
-    BANMI("반미"),
-    WOLNAMSSAM("월남쌈"),
-    BUNCCHA("분짜");
+public class AsianMenu implements Menu {
 
-    private String menuName;
+    private final static List<String> menus = new LinkedList<String>(
+            List.of("팟타이", "카오 팟", "나시고렝", "파인애플 볶음밥", "쌀국수", "똠얌꿍", "반미", "월남쌈", "분짜"));
 
-    AsianMenu(String menuName) {
-        this.menuName = menuName;
+    @Override
+    public boolean hasMenu(String inputMenu) {
+        return menus.contains(inputMenu);
     }
 
-    public static boolean hasMenu(String inputMenu){
-        return Arrays.stream(AsianMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
-    }
-
-    public String getMenuName() {
-        return menuName;
+    public String getMenuName(int index) {
+        return menus.get(index);
     }
 }
 

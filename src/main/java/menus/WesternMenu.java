@@ -1,30 +1,23 @@
 package menus;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
-public enum WesternMenu {
-    RAJANYA("라자냐"),
-    GRATANG("그라탱"),
-    NYOKI("뇨끼"),
-    KKISSU("끼슈"),
-    FRENCHTOAST("프렌치토스트"),
-    BAGETTE("바게트"),
-    SPAGETTI("스파게티"),
-    PIZZA("피자"),
-    PANINI("파니니");
+public class WesternMenu implements Menu {
 
-    private String menuName;
+    private final static List<String> menus = new LinkedList<>(
+            List.of("라자냐,", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
 
-    WesternMenu(String menuName) {
-        this.menuName = menuName;
+    @Override
+    public boolean hasMenu(String inputMenu) {
+        return menus.contains(inputMenu);
     }
 
-    public static boolean hasMenu(String inputMenu){
-        return Arrays.stream(WesternMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
-    }
-
-    public String getMenuName() {
-        return menuName;
+    @Override
+    public String getMenuName(int index) {
+        return menus.get(index);
     }
 }
 

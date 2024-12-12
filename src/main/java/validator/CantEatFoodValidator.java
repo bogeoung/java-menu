@@ -36,8 +36,9 @@ public class CantEatFoodValidator {
     }
 
     private boolean validNameOfFoods(){
+        AllMenus allMenus = new AllMenus();
         for(String food:foods){
-            if(!AllMenus.checkInMenu(food)){
+            if(!allMenus.checkInMenu(food)){
                 return false;
             }
         }

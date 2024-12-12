@@ -2,34 +2,42 @@ package menus;
 
 public class AllMenus {
 
-    private static AsianMenu asianMenu;
-    private static ChinaMenu chinaMenu;
-    private static JapanMenu japanMenu;
-    private static KoreanMenu koreanMenu;
-    private static WesternMenu westernMenu;
+    private AsianMenu asianMenu;
+    private ChinaMenu chinaMenu;
+    private JapanMenu japanMenu;
+    private KoreanMenu koreanMenu;
+    private WesternMenu westernMenu;
 
-    public static boolean checkInMenu(String menuName) {
+    public AllMenus() {
+        this.asianMenu = new AsianMenu();
+        this.chinaMenu = new ChinaMenu();
+        this.japanMenu = new JapanMenu();
+        this.koreanMenu = new KoreanMenu();
+        this.westernMenu = new WesternMenu();
+    }
+
+    public boolean checkInMenu(String menuName) {
         return checkAsian(menuName) || checkChina(menuName) || checkJapan(menuName)
                 || checkKorea(menuName) || checkWestern(menuName);
     }
 
-    private static boolean checkAsian(String menuName) {
+    private boolean checkAsian(String menuName) {
         return asianMenu.hasMenu(menuName);
     }
 
-    private static boolean checkChina(String menuName) {
+    private boolean checkChina(String menuName) {
         return chinaMenu.hasMenu(menuName);
     }
 
-    private static boolean checkJapan(String menuName) {
+    private boolean checkJapan(String menuName) {
         return japanMenu.hasMenu(menuName);
     }
 
-    private static boolean checkKorea(String menuName) {
+    private boolean checkKorea(String menuName) {
         return koreanMenu.hasMenu(menuName);
     }
 
-    private static boolean checkWestern(String menuName) {
+    private boolean checkWestern(String menuName) {
         return westernMenu.hasMenu(menuName);
     }
 

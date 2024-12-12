@@ -1,29 +1,22 @@
 package menus;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
-public enum ChinaMenu {
-    KKANPONGGI("깐풍기"),
-    FRIEDRICE("볶음면"),
-    DONGPAYOOK("동파육"),
-    JJAJANG("짜장면"),
-    JJAMPONG("짬뽕"),
-    MAFADUFU("마파두부"),
-    TANGSUYUK("탕수육"),
-    TOMATOEGGFRY("토마토달걀볶음"),
-    GOCHUJAPCHE("고추잡채");
+public class ChinaMenu implements Menu {
 
-    private String menuName;
+    private final static List<String> menus = new LinkedList<>(List.of("깐풍기", "볶음면", "동파육", "짜장면", "짬뽕", "마파두부",
+            "탕수육", "토마토", "달걀볶음", "고추잡채"));
 
-    ChinaMenu(String menuName) {
-        this.menuName = menuName;
+    @Override
+    public boolean hasMenu(String inputMenu) {
+        return menus.contains(inputMenu);
     }
 
-    public static boolean hasMenu(String inputMenu){
-        return Arrays.stream(ChinaMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
-    }
-    public String getMenuName() {
-        return menuName;
+    @Override
+    public String getMenuName(int index) {
+        return menus.get(index);
     }
 }
 

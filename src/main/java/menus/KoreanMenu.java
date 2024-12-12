@@ -1,30 +1,20 @@
 package menus;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
-public enum KoreanMenu {
-    KIMBAP("김밥"),
-    KIMCHISOUP("김치찌개"),
-    SSAMPBAB("쌈밥"),
-    SOYBEANSOUP("된장찌개"),
-    BIBIMBAP("비빔밥"),
-    KALNOODLE("칼국수"),
-    BULGOGI("불고기"),
-    TTEOKBBOKI("떡볶이"),
-    GAEYUK("제육볶음");
+public class KoreanMenu implements Menu {
+    private final static List<String> menus = new LinkedList<>(List.of("김밥,","김치찌개","쌈밥","된장찌개","비빔밥","칼국수","불고기","떡볶이","제육볶음"));
 
-    private String menuName;
-
-    KoreanMenu(String menuName) {
-        this.menuName = menuName;
+    @Override
+    public boolean hasMenu(String inputMenu) {
+        return menus.contains(inputMenu);
     }
 
-    public static boolean hasMenu(String inputMenu){
-        return Arrays.stream(KoreanMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
-    }
-
-    public String getMenuName() {
-        return menuName;
+    @Override
+    public String getMenuName(int index) {
+        return menus.get(index);
     }
 }
 

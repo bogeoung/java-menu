@@ -1,29 +1,23 @@
 package menus;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
-public enum JapanMenu {
-    GYEDONG("규동"),
-    WOODONG("우동"),
-    MISOSIRU("미소시루"),
-    SUSI("스시"),
-    KATSUDONG("가츠동"),
-    ONIGIRI("오니기리"),
-    HIRICE("하이라이스"),
-    RAMEN("라멘"),
-    OCONOMIYAKI("오코노미야끼");
+public class JapanMenu implements Menu {
+    private final static List<String> menus = new LinkedList<>(List.of("규동","우동","미소시루","스시","가츠동","오니기리","하이라이스",
+            "라멘","오코노미야끼"));
 
     private String menuName;
 
-    JapanMenu(String menuName) {
-        this.menuName = menuName;
+    @Override
+    public boolean hasMenu(String inputMenu) {
+        return menus.contains(inputMenu);
     }
 
-    public static boolean hasMenu(String inputMenu){
-        return Arrays.stream(JapanMenu.values()).anyMatch(menu -> menu.menuName.equals(inputMenu));
-    }
-    public String getMenuName() {
-        return menuName;
+    @Override
+    public String getMenuName(int index) {
+        return menus.get(index);
     }
 }
 
