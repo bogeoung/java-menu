@@ -25,9 +25,7 @@ public class Recommender {
         RecommendationMachine recommendationMachine = new RecommendationMachine();
         List<Integer> weekCategories = recommendationMachine.getRandomCategories();
         recommendationMachine.setRandomFoodsByCoach(weekCategories, coaches);
-        Result result = new Result(weekCategories, coaches);
-        OutputView.printResult();
-
+        Result.print(weekCategories, coaches);
     }
 
     private List<String> getCoachNames() {
