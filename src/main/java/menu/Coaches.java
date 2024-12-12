@@ -14,4 +14,8 @@ public class Coaches {
     public void add(String name, List<String> cantEatFoods) {
         coaches.add(new Coach(name, cantEatFoods));
     }
+
+    public List<Coach> getCoaches() {
+        return coaches;
+    }
 }

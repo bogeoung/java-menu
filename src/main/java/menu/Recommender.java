@@ -6,6 +6,7 @@ import validator.CantEatFoodValidator;
 import validator.NameValidator;
 import view.InputView;
 import view.Message;
+import view.OutputView;
 
 public class Recommender {
 
@@ -22,7 +23,11 @@ public class Recommender {
             coaches.add(coachName, getCantEatFoods(coachName));
         }
         RecommendationMachine recommendationMachine = new RecommendationMachine();
-        System.out.println(recommendationMachine.getRandomCategories());
+        List<Integer> weekCategories = recommendationMachine.getRandomCategories();
+        recommendationMachine.setRandomFoodsByCoach(weekCategories, coaches);
+        Result result = new Result(weekCategories, coaches);
+        OutputView.printResult();
+
     }
 
     private List<String> getCoachNames() {

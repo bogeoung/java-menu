@@ -1,44 +1,39 @@
 package menus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AllMenus {
 
-    private AsianMenu asianMenu;
-    private ChinaMenu chinaMenu;
-    private JapanMenu japanMenu;
-    private KoreanMenu koreanMenu;
-    private WesternMenu westernMenu;
+    private static List<Menu> categories = new ArrayList<>();
+    private final static List<String> categoryNames = new ArrayList<>(List.of("일식", "한식", "중식", "아시안", "양식"));
 
     public AllMenus() {
-        this.asianMenu = new AsianMenu();
-        this.chinaMenu = new ChinaMenu();
-        this.japanMenu = new JapanMenu();
-        this.koreanMenu = new KoreanMenu();
-        this.westernMenu = new WesternMenu();
+        categories.add(new JapanMenu());
+        categories.add(new KoreanMenu());
+        categories.add(new ChinaMenu());
+        categories.add(new AsianMenu());
+        categories.add(new WesternMenu());
     }
 
     public boolean checkInMenu(String menuName) {
-        return checkAsian(menuName) || checkChina(menuName) || checkJapan(menuName)
-                || checkKorea(menuName) || checkWestern(menuName);
+        for(Menu menu : categories) {
+            if(menu.hasMenu(menuName)){
+                return true;
+            }
+        }
+        return false;
     }
 
-    private boolean checkAsian(String menuName) {
-        return asianMenu.hasMenu(menuName);
+    public static List<String> getCategoriesNames() {
+        return categoryNames;
     }
 
-    private boolean checkChina(String menuName) {
-        return chinaMenu.hasMenu(menuName);
+    public static String getCategoryNameByIndex(int index) {
+        return categoryNames.get(index);
     }
 
-    private boolean checkJapan(String menuName) {
-        return japanMenu.hasMenu(menuName);
+    public static Menu getCategoryByIndex(int index) {
+        return categories.get(index);
     }
-
-    private boolean checkKorea(String menuName) {
-        return koreanMenu.hasMenu(menuName);
-    }
-
-    private boolean checkWestern(String menuName) {
-        return westernMenu.hasMenu(menuName);
-    }
-
 }
