@@ -1,15 +1,12 @@
 package menus;
 
-public enum Categories {
-    ASIAN("아시안"),
-    CHINA("중식"),
-    JAPAN("일식"),
-    KOREAN("한식"),
-    WESTERN("양식");
+import java.util.ArrayList;
+import java.util.List;
 
-    private final String category;
+public class Categories {
+    private static List<String> categories = new ArrayList<>(List.of("일식", "한식", "중식", "아시안", "중식"));
 
-    Categories(String category) {
-        this.category = category;
+    public static List<String> getCategories() {
+        return categories;
     }
 }

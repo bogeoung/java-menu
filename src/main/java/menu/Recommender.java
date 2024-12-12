@@ -21,6 +21,8 @@ public class Recommender {
         for (String coachName : coachNames) {
             coaches.add(coachName, getCantEatFoods(coachName));
         }
+        RecommendationMachine recommendationMachine = new RecommendationMachine();
+        System.out.println(recommendationMachine.getRandomCategories());
     }
 
     private List<String> getCoachNames() {
